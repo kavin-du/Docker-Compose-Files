@@ -10,6 +10,9 @@ services:
       MONGO_INITDB_DATABASE: my-db
     ports: # not need when connect from outside 
       - 27017:27017
+    volumes:
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+
 
   mongo-express:
      image: mongo-express
